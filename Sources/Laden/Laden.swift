@@ -62,10 +62,14 @@ extension Laden {
                 .stroke(color, lineWidth: strokeLineWidth)
                 .frame(width: size.width, height: size.height)
                 .rotationEffect(.degrees(rotation))
-                .animation(isAnimating ? .linear : .none)
                 .onReceive(timer) { _ in
-                    if isAnimating { rotation += 36 }
+                    if isAnimating {
+                        withAnimation(isAnimating ? .linear : .none) {
+                            rotation += 36
+                        }
+                    }
                 }
+                .transition(.opacity)
         }
     }
     
