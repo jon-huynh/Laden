@@ -69,7 +69,6 @@ extension Laden {
                         }
                     }
                 }
-                .transition(.opacity)
         }
     }
     
